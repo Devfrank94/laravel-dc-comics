@@ -12,13 +12,13 @@
     <body>
 
 
-        {{-- @include('partials.header') --}}
+        @include('partials.header')
 
         <main class="my-5">
             @yield('content')
         </main>
 
-        {{-- @include('partials.footer') --}}
+        @include('partials.footer')
 
     </body>
 </html>
