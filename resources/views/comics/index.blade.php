@@ -24,7 +24,8 @@
                         <td>{{$comic->series}}</td>
                         <td>{{$comic->price}}</td>
                         <td>{{$comic->sale_date}}</td>
-                        <td><a href="{{route('comics.show', $comic)}}" class="btn btn-primary"><i class="fa-regular fa-eye" style="color: #ffffff;"></i></a></td>
+                        <td><a href="{{route('comics.show', $comic)}}" class="btn btn-secondary"><i class="fa-regular fa-eye" style="color: #ffffff;"></i></a></td>
+                        <td><a href="{{route('comics.edit', $comic)}}" class="btn btn-primary"><i class="fa-regular fa-pen-to-square" style="color: #ffffff;"></i></a></td>
                     </tr>
                 @endforeach
             </tbody>
