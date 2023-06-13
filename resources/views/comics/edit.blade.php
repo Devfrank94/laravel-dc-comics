@@ -15,14 +15,15 @@
         @endif
 
 
-        <form action="{{ route('comics.store') }}" method="POST">
+        <form action="{{ route('comics.update', $comic) }}" method="POST">
             @csrf
 
+            @method('PUT')
             <div class="mb-4">
                 <label for="title" class="form-label">Titolo (*)</label>
                 <input
                   id="title"
-                  value="{{ old('title') }}"
+                  value="{{old('title', $comic->title)}}"
                   class="form-control @error('title') is-invalid @enderror"
                   name="title"
                   placeholder="title"
@@ -35,7 +36,7 @@
 
             <div class="mb-4">
                 <label for="description" class="form-label">Descrizione (*)</label>
-                <textarea class="form-control"  name="description" id="description" cols="30" rows="10" placeholder="Descrizione">{{ old('description') }}</textarea>
+                <textarea class="form-control"  name="description" id="description" cols="30" rows="10" placeholder="Descrizione">{{ old('description', $comic->description) }}</textarea>
                 @error('description')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -45,7 +46,7 @@
                 <label for="thumb" class="form-label">Immagine (*)</label>
                 <input
                   id="thumb"
-                  value="{{ old('thumb') }}"
+                  value="{{ old('thumb', $comic->thumb) }}"
                   class="form-control @error('thumb') is-invalid @enderror"
                   name="thumb"
                   placeholder="Inserisci path immagine"
@@ -60,7 +61,7 @@
                 <label for="price" class="form-label">Prezzo (*)</label>
                 <input
                   id="price"
-                  value="{{ old('price') }}"
+                  value="{{ old('price', $comic->price) }}"
                   class="form-control @error('price') is-invalid @enderror"
                   name="price"
                   placeholder="Prezzo"
@@ -75,7 +76,7 @@
                 <label for="series" class="form-label">Serie di appartenenza (*)</label>
                 <input
                   id="series"
-                  value="{{ old('series') }}"
+                  value="{{ old('series', $comic->series) }}"
                   class="form-control @error('series') is-invalid @enderror"
                   name="series"
                   placeholder="series"
@@ -90,7 +91,7 @@
                 <label for="sale_date" class="form-label">Data Publicazione (*)</label>
                 <input
                   id="sale_date"
-                  value="{{ old('sale_date') }}"
+                  value="{{ old('sale_date', $comic->sale_date) }}"
                   class="form-control @error('sale_date') is-invalid @enderror"
                   name="sale_date"
                   placeholder="Data Publicazione"
@@ -105,7 +106,7 @@
                 <label for="type" class="form-label">Tipo (*)</label>
                 <input
                   id="type"
-                  value="{{ old('type') }}"
+                  value="{{ old('type', $comic->type) }}"
                   class="form-control @error('type') is-invalid @enderror"
                   name="type"
                   placeholder="Tipo"
@@ -120,7 +121,7 @@
                 <label for="artists" class="form-label">Artisti (*)</label>
                 <input
                   id="artists"
-                  value="{{ old('artists') }}"
+                  value="{{ old('artists', $comic->artists) }}"
                   class="form-control @error('artists') is-invalid @enderror"
                   name="artists"
                   placeholder="Artisti"
@@ -135,7 +136,7 @@
                 <label for="writers" class="form-label">Scrittori (*)</label>
                 <input
                   id="writers"
-                  value="{{ old('writers') }}"
+                  value="{{ old('writers', $comic->writers) }}"
                   class="form-control @error('writers') is-invalid @enderror"
                   name="writers"
                   placeholder="Scrittori"
