@@ -79,7 +79,7 @@
                   value="{{ old('series', $comic->series) }}"
                   class="form-control @error('series') is-invalid @enderror"
                   name="series"
-                  placeholder="series"
+                  placeholder="Serie"
                   type="text"
                 >
                 @error('series')

@@ -4,7 +4,17 @@
 @section('content')
 <main>
     <div class="container my-4">
-        <h2 class="mb-3">Dettaglio Scheda | {{$comic->title}} <a href="{{route('comics.edit', $comic)}}" class="btn btn-primary"><i class="fa-regular fa-pen-to-square" style="color: #ffffff;"></i></a></h2>
+        <h2 class="mb-3">Dettaglio Scheda | {{$comic->title}} <a href="{{route('comics.edit', $comic)}}" class="btn btn-primary"><i class="fa-regular fa-pen-to-square" title="Modifica" style="color: #ffffff;"></i></a>
+            <form class="d-inline" action="{{route('comics.destroy', $comic)}}" onsubmit="return confirm('Confermi l\'eliminazione di {{ $comic->title }} ?')" method="POST">
+
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="btn btn-danger"><i class="fa-regular fa-trash-can" title="Elimina" style="color: #ffffff;"></i></button>
+            </form>
+        </h2>
+
+
 
             <div class="card-wrapper d-flex gap-2 w-100">
                 <img class="rounded w-50" src="{{$comic->thumb}}" alt="{{$comic->title}}" title="{{$comic->title}}">
