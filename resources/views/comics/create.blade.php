@@ -36,6 +36,9 @@
             <div class="mb-4">
                 <label for="description" class="form-label">Descrizione (*)</label>
                 <textarea class="form-control"  name="description" id="description" cols="30" rows="10" placeholder="Descrizione">{{ old('description') }}</textarea>
+                @error('description')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-4">
